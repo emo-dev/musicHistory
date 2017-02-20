@@ -1,0 +1,122 @@
+<!doctype html>
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Music History</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body onclick="Music.eventListeners.deleteSongs()">
+
+<!--Home Page-->
+<div id="list-page">
+	<div class="wrapper">
+
+		<div class="nav-bar">
+			<ul class="nav-list">
+				<li id="link-home" class="right-border" ><a href="#!">List</a></li>
+				<li id="link-add" class="right-border" onclick="Music.eventListeners.updateHeader('ADD')"><a href="#!">Add</a></li>
+			</ul>
+
+			<div id="nav-header">
+				<section>LIST</section>
+			</div>
+		</div>
+
+		<!-- Side Bar -->
+		<div class="side-bar">
+
+			<div id="scrollbar">
+				<h3>Song Length</h3>
+				<img src="images/scroll-bar.png">
+			</div>
+
+			<div class="dropdown-wrap">
+				<div class="dropdown">
+					<h3>Artist:</h3>
+				    <button class="dropdown-button">Options</button>
+				    <div class="dropdown-content">
+				      <a href="#">Link 1</a>
+				      <a href="#">Link 2</a>
+				      <a href="#">Link 3</a>
+				    </div>
+				</div>
+
+				<div class="dropdown">
+					<h3>Albums:</h3>
+				    <button class="dropdown-button">Dropdown</button>
+				    <div class="dropdown-content">
+				        <a href="#">Link 1</a>
+				        <a href="#">Link 2</a>
+				        <a href="#">Link 3</a>
+				    </div>
+				</div>
+			</div>
+
+			<div class="genre-select">
+				<h3>Genre:</h3> 
+				<input type="radio" name="genre" value="rock">Rock<br>
+				<input type="radio" name="genre" value="classical">Classical<br>
+				<input type="radio" name="genre" value="Pop">Pop<br>
+				<input type="radio" name="genre" value="Jazz">Jazz<br>
+				<input type="radio" name="genre" value="Blues">Blues<br>
+				<input type="radio" name="genre" value="Hip Hop">Hip Hop<br>
+			</div>
+			<div class="filter">
+				<button>Filter</button>
+			</div>
+		</div>
+		<!-- End of Side Bar -->
+		<div id="main-content-wrap">
+			<div id="main-content">		
+			</div>
+			<div id="more">
+				<button onclick="Music.eventListeners.uploadSecondJson()">More ></button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+<!--Add Page-->
+<div id="add-page" class="hidden">
+	<div class="wrapper">
+
+		<div class="nav-bar">
+			<ul class="nav-list">
+				<li id="link-home" class="right-border" onclick="Music.eventListeners.updateHeader('LIST')"><a href="#!">List</a></li>
+				<li id="link-add" class="right-border"><a href="#!">Add</a></li>
+			</ul>
+
+			<div id="nav-header">
+				<section>ADD</section>
+			</div>
+		</div>
+
+		<div class="add-content">
+			Song: <br>
+			<input type="text" name="song-input"><br><br>
+			Artist: <br>
+			<input type="text" name="song-input"><br><br>
+			Album: <br>
+			<input type="text" name="song-input"><br><br>
+			<button class="add-button" onclick="Music.updateSongs()">Add</button>
+		</div>
+
+	</div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="javascripts/PopulateList.js"></script>
+<script type="text/javascript" src="javascripts/HandleJson.js"></script>
+<script type="text/javascript" src="javascripts/EventListeners.js"></script>
+<script type="text/javascript" src="javascripts/AddMusic.js"></script>
+</body>
+</html>
