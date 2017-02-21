@@ -22,22 +22,31 @@ readSongs.loadJson('../JSON/songs.json').then(
 		(songData) => storage.setJsonSongs(songData)
 	).then(
 		(myStoredJsonData) => myStoredJsonData.forEach((song) => domHandling.createSongStructure(song))
-);
-	
-/*
-Taking second set of JSON data and storing it within storeMusic.js
-Console.log all of current stored data
-*/
-readSongs.loadJson('../JSON/songs2.json').then(
+	).then(
+		/*
+		Taking second set of JSON data and storing it within storeMusic.js
+		Console.log all of current stored data
+		*/
+		() => readSongs.loadJson('../JSON/songs2.json')
+	).then(
 		(songData) => storage.setJsonSongs(songData)
 	).then(
-		(songArr) => console.log("Here is all of my tored Json data: ", storage.getJsonSongs())
+		(songArr) => console.log("Here is all of my stored Json data: ", storage.getJsonSongs())
 );
 
 
+
+//================================================//
+//=============SET UP PAGE TOGGLE=================//
+//================================================//
+
+
+//THIS NEEDS TO BE DONE NEXT
+
 //Set up toggle for switching between List and Add pages
-$('#link-home').click((event) => {
+$('#link-list').click((event) => {
 	console.log("You are clicking: ", event.currentTarget);
+	let myHeader = $();
 });
 
 $('#link-add').click((event) => {

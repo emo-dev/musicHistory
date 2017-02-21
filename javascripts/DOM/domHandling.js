@@ -7,8 +7,8 @@ let numOfSongsOnPage = 0;
 
 let createSongStructure = (song) => {
 
-	console.log("You are in domHandling.js within creatSongStructure(). Here is your song: ", song);
 
+	// console.log("You are in domHandling.js within creatSongStructure(). Here is your song: ", song);
 	let counter = numOfSongsOnPage;
 	$(
 		
@@ -29,7 +29,6 @@ let createSongStructure = (song) => {
 
 		).insertBefore( $(".more") );
 	numOfSongsOnPage++;
-	console.log("songs created");
 };
 
 

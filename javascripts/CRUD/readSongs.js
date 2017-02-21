@@ -11,7 +11,7 @@ let loadJson = function(fileName) {
 	return new Promise ((resolve, reject) => {
 		$.ajax({url: fileName})
 			.done((songData) => {
-				console.log("This is your song data: ", songData);	
+				console.log(`This is your song data with ${fileName}: `, songData);	
 				resolve(songData);
 			})
 			.fail((error) => reject(error));
