@@ -1,0 +1,152 @@
+body, html {
+	height: 100%;
+	width: 100%;
+}
+
+ul, h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: unset;
+}
+
+/*====MAIN WRAPPER====*/
+.wrapper {
+	width: 100%;
+	height: 100%;
+	float: left;
+	/*position: relative;*/
+}
+
+/*====NAV====*/
+.navbar {
+	height: 50px;
+	width: 1170px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin: auto;
+	background-color: #FFB4B0 !important;
+	border: 1px solid black;
+}
+
+.nav-container {
+	padding-right: 0;
+	padding-left: 0;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+li > a {
+	text-decoration: none;
+}
+
+/*====SIDEBAR====*/
+.side-bar {
+	padding: 1em 1em;
+	min-height: 625px;
+	border: 1px solid black;
+	border-radius: 4px;
+	background-color: #4DD7FA;
+	font-size: 12px;
+}
+
+.side-bar > h3 {
+	padding: 12px;
+	text-align: center;
+}
+
+.filter-btns {
+	min-height: 300px;
+	margin: 25px;
+	padding-top: 25px;
+	background-color: #337ab7;
+	border-radius: 4px;
+	border: 2px solid #2e6da4;
+}
+
+
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.filter {
+	width: 364px;
+	padding-bottom: 12px;
+	bottom: 0;
+	position: absolute;
+}
+
+
+.song-filter-display {
+	min-height: 50px;
+	padding: 20px;
+}
+
+
+/*====MORE BUTTON====*/
+.more {
+	margin: 1em 15% 1em 0;
+	padding-left: 1em;
+	text-align: right;
+	bottom: 0;
+}
+
+
+
+/*====MAIN CONTENT====*/
+
+#main-content {
+	min-height: 600px;
+	border: 1px solid black;
+	border-radius: 4px;
+	font-size: 12px;
+	background-color: #FEFAC0;
+	padding-right: 0;
+}
+
+.song-list {
+	border-bottom: 1px solid black;
+	margin: auto;
+	padding: 1em;
+	padding-right: 0;
+}
+
+.song-list > div > p {
+	font-size: 16px;
+}
+
+.song-container > p {
+	padding-top: 0;
+	padding-left: 1em;
+}
+
+.delete-btn {
+	display: inline-block;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+/*====ADD PAGE====*/
+.add-content {
+	width: 50%;
+	margin: 1em auto;
+	padding: 1em;
+	text-align: center;
+	border: 1px solid black;
+	background-color: lightgrey;
+}
+
+.sample-1 {
+	background-color: black;
+	height: 40px;
+}
+

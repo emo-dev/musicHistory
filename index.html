@@ -6,117 +6,128 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="CSS/main.css">
 </head>
 
-<body onclick="Music.eventListeners.deleteSongs()">
+<body>
+<div class="container nav-container">
 
-<!--Home Page-->
-<div id="list-page">
-	<div class="wrapper">
+	<!--NAV BAR-->
+	<nav class="navbar navbar-default">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Music History</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="#">List</a></li>
+	        <li><a href="#">Add</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<!--END OF NAV BAR-->
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 side-bar">
+			<h3><u>Filter Yo' Songs</u></h3>
 
-		<div class="nav-bar">
-			<ul class="nav-list">
-				<li id="link-home" class="right-border" ><a href="#!">List</a></li>
-				<li id="link-add" class="right-border" onclick="Music.eventListeners.updateHeader('ADD')"><a href="#!">Add</a></li>
-			</ul>
-
-			<div id="nav-header">
-				<section>LIST</section>
+			<div class="row filter-btns">
+				<div class="col-sm-5 col-sm-offset-1">
+					<div class="btn-group btn-block">
+		        <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">Artist<span class="caret"></span></button>
+		        <ul class="dropdown-menu scrollable-menu" role="menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		        </ul>
+			    </div>
+			  </div>
+			  <div class="col-sm-5">
+					<div class="btn-group btn-block">
+			        <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">Album<span class="caret"></span></button>
+			        <ul class="dropdown-menu dropdown-menu-right scrollable-menu" role="menu">
+			        </ul>
+			    </div>
+			  </div>
 			</div>
-		</div>
 
-		<!-- Side Bar -->
-		<div class="side-bar">
-
-			<div id="scrollbar">
-				<h3>Song Length</h3>
-				<img src="images/scroll-bar.png">
-			</div>
-
-			<div class="dropdown-wrap">
-				<div class="dropdown">
-					<h3>Artist:</h3>
-				    <button class="dropdown-button">Options</button>
-				    <div class="dropdown-content">
-				      <a href="#">Link 1</a>
-				      <a href="#">Link 2</a>
-				      <a href="#">Link 3</a>
-				    </div>
+			<div class="row song-filter">
+				<div class="song-filter-display">
+					<h4>Artist: <span class="artist-name">Artist Name</span></h4>
 				</div>
-
-				<div class="dropdown">
-					<h3>Albums:</h3>
-				    <button class="dropdown-button">Dropdown</button>
-				    <div class="dropdown-content">
-				        <a href="#">Link 1</a>
-				        <a href="#">Link 2</a>
-				        <a href="#">Link 3</a>
-				    </div>
+				<div class="song-filter-display">
+					<h4>Album: <span class="album-name"></span></h4>
 				</div>
 			</div>
 
-			<div class="genre-select">
-				<h3>Genre:</h3> 
-				<input type="radio" name="genre" value="rock">Rock<br>
-				<input type="radio" name="genre" value="classical">Classical<br>
-				<input type="radio" name="genre" value="Pop">Pop<br>
-				<input type="radio" name="genre" value="Jazz">Jazz<br>
-				<input type="radio" name="genre" value="Blues">Blues<br>
-				<input type="radio" name="genre" value="Hip Hop">Hip Hop<br>
-			</div>
-			<div class="filter">
-				<button>Filter</button>
-			</div>
-		</div>
-		<!-- End of Side Bar -->
-		<div id="main-content-wrap">
-			<div id="main-content">		
-			</div>
-			<div id="more">
-				<button onclick="Music.eventListeners.uploadSecondJson()">More ></button>
+
+			
+
+			<div class="center-block filter">
+				<button type="button" class="btn btn-primary btn-lg btn-block">Filter</button>
 			</div>
 		</div>
 
+
+
+
+		<div id="main-content" class="col-sm-8">
+			<div>	
+				<div class="center-block more pull-right">
+					<button type="button" class="btn btn-primary pull-right">More</button>
+				</div>
+			</div>
+		</div>
+
+			<!--HERE IS WHERE WE START THE ADD PAGE-->
+			<!-- <div class="col add-content hidden">
+				Song: <br>
+				<input type="text" name="song-input"><br><br>
+				Artist: <br>
+				<input type="text" name="song-input"><br><br>
+				Album: <br>
+				<input type="text" name="song-input"><br><br>
+				<button class="add-button">Add</button>
+			</div> -->
+
+		</div><!--End of row-->
+</div><!--End of container-->
+
+<!-- <div class="col-sm-4 side-bar">
+	<div id="scrollbar">
+		<h3>Song Length</h3>
+	</div>
+	
+	<div class="filter">
+		<button>Filter</button>
 	</div>
 </div>
 
-
-
-<!--Add Page-->
-<div id="add-page" class="hidden">
-	<div class="wrapper">
-
-		<div class="nav-bar">
-			<ul class="nav-list">
-				<li id="link-home" class="right-border" onclick="Music.eventListeners.updateHeader('LIST')"><a href="#!">List</a></li>
-				<li id="link-add" class="right-border"><a href="#!">Add</a></li>
-			</ul>
-
-			<div id="nav-header">
-				<section>ADD</section>
-			</div>
+<div class="col-sm-8">
+		<div id="main-content">		
+			<input id="more" class="btn btn-default" type="button" value="More">
 		</div>
-
-		<div class="add-content">
-			Song: <br>
-			<input type="text" name="song-input"><br><br>
-			Artist: <br>
-			<input type="text" name="song-input"><br><br>
-			Album: <br>
-			<input type="text" name="song-input"><br><br>
-			<button class="add-button" onclick="Music.updateSongs()">Add</button>
-		</div>
-
-	</div>
 </div>
+ -->
 
 
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script type="text/javascript" src="javascripts/PopulateList.js"></script>
-<script type="text/javascript" src="javascripts/HandleJson.js"></script>
-<script type="text/javascript" src="javascripts/EventListeners.js"></script>
-<script type="text/javascript" src="javascripts/AddMusic.js"></script>
+<script src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="dist/app.js"></script>
+
 </body>
 </html>
