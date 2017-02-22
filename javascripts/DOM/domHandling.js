@@ -6,8 +6,6 @@
 let numOfSongsOnPage = 0;
 
 let createSongStructure = (song) => {
-
-
 	// console.log("You are in domHandling.js within creatSongStructure(). Here is your song: ", song);
 	let counter = numOfSongsOnPage;
 	$(
@@ -35,13 +33,24 @@ let createSongStructure = (song) => {
 //This function toggle between the List and Add Music pages
 let updateHeader = (headerName) => {
 	if (headerName === "ADD") {
-		$("#add-page").show();
-		$("#list-page").hide();
+		$("#add-page").removeClass('hidden');
+		$("#list-page").addClass('hidden');
 	} else if (headerName === "LIST") {
-		$("#list-page").show();
-		$("#add-page").hide();
+		$("#list-page").removeClass('hidden');
+		$("#add-page").addClass('hidden');
 	}
 };
 
+//This function is designed to populate the filter options. It takes two parameters, the array of values, and the name of 
+//the value type. Ex: 'artist', 'album'
+let updateFilterValues = (objValArr, objValType) => objValArr.forEach((objVal) => $(`<li><a href='#'>${objVal}</a></li>`).appendTo(`.${objValType}-scroll`));
 
-module.exports = {createSongStructure, updateHeader};
+
+//This function filters out the songs listed on the LIST page based on either album, artist, or both
+let filterSongs = (myFilterObj) => console.log(typeOf myFilterObj.artist);
+
+
+
+module.exports = {createSongStructure, updateHeader, updateFilterValues, filterSongs};
+
+

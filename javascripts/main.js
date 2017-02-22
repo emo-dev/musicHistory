@@ -31,7 +31,11 @@ readSongs.loadJson('../JSON/songs.json').then(
 	).then(
 		(songData) => storage.setJsonSongs(songData)
 	).then(
-		(songArr) => console.log("Here is all of my stored Json data: ", storage.getJsonSongs())
+		(songArr) => {
+			//
+			domHandling.updateFilterValues(storage.getSongValues("album"), "album");
+			domHandling.updateFilterValues(storage.getSongValues("artist"), "artist");
+		}
 );
 
 
@@ -40,18 +44,47 @@ readSongs.loadJson('../JSON/songs.json').then(
 //=============SET UP PAGE TOGGLE=================//
 //================================================//
 
-
-//THIS NEEDS TO BE DONE NEXT
-
 //Set up toggle for switching between List and Add pages
 $('#link-list').click((event) => {
-	console.log("You are clicking: ", event.currentTarget);
-	let myHeader = $();
+	$('.page-header').html("LIST");
+	domHandling.updateHeader($('.page-header').html());
+});
+$('#link-add').click((event) => {
+	$('.page-header').html("ADD");
+	domHandling.updateHeader($('.page-header').html());
 });
 
-$('#link-add').click((event) => {
-	console.log("You are clicking: ", event.currentTarget);
+
+
+//================================================//
+//=============SET UP SONG FILTER=================//
+//================================================//
+
+//This updates the values of the song-filter on-click for both artist and album
+$('.artist-scroll').click((event) => {
+	$('.artist-name').html($(event.target).html());
 });
+
+$('.album-scroll').click((event) => {
+	$('.album-name').html($(event.target).html());
+});
+
+//Set up filter button to filter songs displayed either by artist or by album, 
+//or by both
+$('.filter-btn').click((event) => {
+	let whatToFilter = {artist: $('.artist-name').html(), album: $('.album-name').html()};
+	domHandling.filterSongs(whatToFilter);
+});
+
+
+
+
+
+
+
+
+
+
 
 
 

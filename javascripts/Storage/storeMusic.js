@@ -23,6 +23,9 @@ let getUserSongs = () => userSongs;
 //Function to retrieve stored Json data
 let getJsonSongs = () => myData;
 
+//function that will combine userSongs and myData, and further sort them by value returning an array or those values
+//Current values: 'title', 'album', 'artist'
+let getSongValues = (value) => (userSongs.concat(myData).map((song) => song[value])).sort();
 
 
-module.exports = {getUserSongs, getJsonSongs, setUserSongs, setJsonSongs};
+module.exports = {getUserSongs, getJsonSongs, setUserSongs, setJsonSongs, getSongValues};

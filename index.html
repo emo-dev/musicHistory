@@ -23,7 +23,7 @@
         <li><a href="#" id="link-list">List</a></li>
         <li><a href="#" id="link-add">Add</a></li>
       </ul>
-	    <p class="navbar-text navbar-right">LIST</a></p>
+	    <p class="navbar-text navbar-right page-header">LIST</a></p>
     </div><!-- /.navbar-collapse -->
 	</nav>
 	<!--END OF NAV BAR-->
@@ -32,64 +32,53 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-4 side-bar">
-			<h3><u>Filter Yo' Songs</u></h3>
 
-			<div class="row filter-btns">
-				<div class="col-sm-5 col-sm-offset-1">
-					<div class="btn-group btn-block">
-		        <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">Artist<span class="caret"></span></button>
-		        <ul class="dropdown-menu scrollable-menu artist-scroll" role="menu">
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		        </ul>
-			    </div>
-			  </div>
-			  <div class="col-sm-5">
-					<div class="btn-group btn-block">
-			        <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">Album<span class="caret"></span></button>
-			        <ul class="dropdown-menu dropdown-menu-right scrollable-menu album-scroll" role="menu">
+		<div id="list-page">
+			<div class="col-sm-4 side-bar">
+				<h3><u>Filter Yo' Songs</u></h3>
+
+				<div class="row filter-btns">
+					<div class="col-sm-5 col-sm-offset-1">
+						<div class="btn-group btn-block">
+			        <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">Artist<span class="caret"></span></button>
+			        <ul class="dropdown-menu scrollable-menu artist-scroll" role="menu">
 			        </ul>
-			    </div>
-			  </div>
-			</div>
-
-			<div class="row song-filter">
-				<div class="song-filter-display">
-					<h4>Artist: <span class="artist-name">Artist Name</span></h4>
+				    </div>
+				  </div>
+				  <div class="col-sm-5">
+						<div class="btn-group btn-block">
+				        <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">Album<span class="caret"></span></button>
+				        <ul class="dropdown-menu dropdown-menu-right scrollable-menu album-scroll" role="menu">
+				        </ul>
+				    </div>
+				  </div>
 				</div>
-				<div class="song-filter-display">
-					<h4>Album: <span class="album-name"></span></h4>
+
+				<div class="row song-filter">
+					<div class="song-filter-display">
+						<h4>Artist: <span class="artist-name"></span></h4>
+					</div>
+					<div class="song-filter-display">
+						<h4>Album: <span class="album-name"></span></h4>
+					</div>
+				</div>
+
+				<div class="center-block filter">
+					<button type="button" class="btn btn-primary btn-lg btn-block filter-btn">Filter</button>
 				</div>
 			</div>
 
-			<div class="center-block filter">
-				<button type="button" class="btn btn-primary btn-lg btn-block">Filter</button>
-			</div>
-		</div>
-
-		<div id="main-content" class="col-sm-8">
-			<div>	
-				<div class="center-block more pull-right">
-					<button type="button" class="btn btn-primary pull-right">More</button>
+			<div id="main-content" class="col-sm-8">
+				<div>	
+					<div class="center-block more pull-right">
+						<button type="button" class="btn btn-primary pull-right">More</button>
+					</div>
 				</div>
 			</div>
 		</div>
 
 			<!--HERE IS WHERE WE START THE ADD PAGE-->
-		<div class="col add-content hidden">
+		<div id="add-page" class="col add-content hidden">
 			Song: <br>
 			<input type="text" name="song-input"><br><br>
 			Artist: <br>

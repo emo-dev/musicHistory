@@ -7,8 +7,6 @@
 let numOfSongsOnPage = 0;
 
 let createSongStructure = (song) => {
-
-
 	// console.log("You are in domHandling.js within creatSongStructure(). Here is your song: ", song);
 	let counter = numOfSongsOnPage;
 	$(
@@ -36,16 +34,28 @@ let createSongStructure = (song) => {
 //This function toggle between the List and Add Music pages
 let updateHeader = (headerName) => {
 	if (headerName === "ADD") {
-		$("#add-page").show();
-		$("#list-page").hide();
+		$("#add-page").removeClass('hidden');
+		$("#list-page").addClass('hidden');
 	} else if (headerName === "LIST") {
-		$("#list-page").show();
-		$("#add-page").hide();
+		$("#list-page").removeClass('hidden');
+		$("#add-page").addClass('hidden');
 	}
 };
 
+//This function is designed to populate the filter options. It takes two parameters, the array of values, and the name of 
+//the value type. Ex: 'artist', 'album'
+let updateFilterValues = (objValArr, objValType) => objValArr.forEach((objVal) => $(`<li><a href='#'>${objVal}</a></li>`).appendTo(`.${objValType}-scroll`));
 
-module.exports = {createSongStructure, updateHeader};
+
+//This function filters out the songs listed on the LIST page based on either album, artist, or both
+let filterSongs = (myFilterObj) => console.log(myFilterObj.artist);
+
+
+
+module.exports = {createSongStructure, updateHeader, updateFilterValues, filterSongs};
+
+
+
 },{}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
@@ -74,9 +84,12 @@ let getUserSongs = () => userSongs;
 //Function to retrieve stored Json data
 let getJsonSongs = () => myData;
 
+//function that will combine userSongs and myData, and further sort them by value returning an array or those values
+//Current values: 'title', 'album', 'artist'
+let getSongValues = (value) => (userSongs.concat(myData).map((song) => song[value])).sort();
 
 
-module.exports = {getUserSongs, getJsonSongs, setUserSongs, setJsonSongs};
+module.exports = {getUserSongs, getJsonSongs, setUserSongs, setJsonSongs, getSongValues};
 },{}],4:[function(require,module,exports){
 "use strict";
 
@@ -188,7 +201,11 @@ readSongs.loadJson('../JSON/songs.json').then(
 	).then(
 		(songData) => storage.setJsonSongs(songData)
 	).then(
-		(songArr) => console.log("Here is all of my stored Json data: ", storage.getJsonSongs())
+		(songArr) => {
+			//
+			domHandling.updateFilterValues(storage.getSongValues("album"), "album");
+			domHandling.updateFilterValues(storage.getSongValues("artist"), "artist");
+		}
 );
 
 
@@ -197,18 +214,47 @@ readSongs.loadJson('../JSON/songs.json').then(
 //=============SET UP PAGE TOGGLE=================//
 //================================================//
 
-
-//THIS NEEDS TO BE DONE NEXT
-
 //Set up toggle for switching between List and Add pages
 $('#link-list').click((event) => {
-	console.log("You are clicking: ", event.currentTarget);
-	let myHeader = $();
+	$('.page-header').html("LIST");
+	domHandling.updateHeader($('.page-header').html());
+});
+$('#link-add').click((event) => {
+	$('.page-header').html("ADD");
+	domHandling.updateHeader($('.page-header').html());
 });
 
-$('#link-add').click((event) => {
-	console.log("You are clicking: ", event.currentTarget);
+
+
+//================================================//
+//=============SET UP SONG FILTER=================//
+//================================================//
+
+//This updates the values of the song-filter on-click for both artist and album
+$('.artist-scroll').click((event) => {
+	$('.artist-name').html($(event.target).html());
 });
+
+$('.album-scroll').click((event) => {
+	$('.album-name').html($(event.target).html());
+});
+
+//Set up filter button to filter songs displayed either by artist or by album, 
+//or by both
+$('.filter-btn').click((event) => {
+	let whatToFilter = {artist: $('.artist-name').html(), album: $('.album-name').html()};
+	domHandling.filterSongs(whatToFilter);
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
