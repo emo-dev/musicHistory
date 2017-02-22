@@ -46,11 +46,26 @@ let updateHeader = (headerName) => {
 let updateFilterValues = (objValArr, objValType) => objValArr.forEach((objVal) => $(`<li><a href='#'>${objVal}</a></li>`).appendTo(`.${objValType}-scroll`));
 
 
-//This function filters out the songs listed on the LIST page based on either album, artist, or both
-let filterSongs = (myFilterObj) => console.log(typeOf myFilterObj.artist);
+module.exports = {createSongStructure, updateHeader, updateFilterValues};
 
 
 
-module.exports = {createSongStructure, updateHeader, updateFilterValues, filterSongs};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

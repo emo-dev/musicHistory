@@ -47,17 +47,52 @@ let updateHeader = (headerName) => {
 let updateFilterValues = (objValArr, objValType) => objValArr.forEach((objVal) => $(`<li><a href='#'>${objVal}</a></li>`).appendTo(`.${objValType}-scroll`));
 
 
-//This function filters out the songs listed on the LIST page based on either album, artist, or both
-let filterSongs = (myFilterObj) => console.log(myFilterObj.artist);
+module.exports = {createSongStructure, updateHeader, updateFilterValues};
 
 
 
-module.exports = {createSongStructure, updateHeader, updateFilterValues, filterSongs};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 },{}],2:[function(require,module,exports){
+"use strict";
 
+//This function filters out the songs listed on the LIST page based on either album, artist, or both
+let filterSongs = (myFilterObj, songArr) => {
+	return new Promise((resolve) => {
+		if ((myFilterObj.artist.length === 0) && (myFilterObj.album.length === 0)) {
+		} else {
+			$('.song-list').remove();
+			let myFilteredSongs = [];
+			let allSongs = songArr.map((song) => {
+				if ((song.artist === myFilterObj.artist) || (song.album === myFilterObj.album)) {
+					myFilteredSongs.push(song);
+					return song;
+				}
+			});
+			resolve(myFilteredSongs);
+		}
+	});
+};
+
+module.exports = {filterSongs};
 },{}],3:[function(require,module,exports){
 "use strict";
 
@@ -239,11 +274,15 @@ $('.album-scroll').click((event) => {
 	$('.album-name').html($(event.target).html());
 });
 
+
 //Set up filter button to filter songs displayed either by artist or by album, 
 //or by both
 $('.filter-btn').click((event) => {
+	//grab the artist and album values that were clicked
 	let whatToFilter = {artist: $('.artist-name').html(), album: $('.album-name').html()};
-	domHandling.filterSongs(whatToFilter);
+	filter.filterSongs(whatToFilter, storage.getUserSongs().concat(storage.getJsonSongs())).then(
+			(filteredArr) => filteredArr.forEach((song) => domHandling.createSongStructure(song))
+		);
 });
 
 

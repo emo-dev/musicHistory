@@ -69,11 +69,15 @@ $('.album-scroll').click((event) => {
 	$('.album-name').html($(event.target).html());
 });
 
+
 //Set up filter button to filter songs displayed either by artist or by album, 
 //or by both
 $('.filter-btn').click((event) => {
+	//grab the artist and album values that were clicked
 	let whatToFilter = {artist: $('.artist-name').html(), album: $('.album-name').html()};
-	domHandling.filterSongs(whatToFilter);
+	filter.filterSongs(whatToFilter, storage.getUserSongs().concat(storage.getJsonSongs())).then(
+			(filteredArr) => filteredArr.forEach((song) => domHandling.createSongStructure(song))
+		);
 });
 
 
